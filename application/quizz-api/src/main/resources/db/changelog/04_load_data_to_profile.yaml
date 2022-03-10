@@ -5,7 +5,7 @@ databaseChangeLog:
     changes:
     - loadData:
         tableName: PROFILE
-        file: data/profiles.csv
+        file: db/data/profiles.csv
         separator: ;
         quotchar: ''''
         encoding: UTF-8

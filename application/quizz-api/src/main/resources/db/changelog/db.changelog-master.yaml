@@ -1,0 +1,13 @@
+databaseChangeLog:
+
+    - include:
+        file: db/changelog/01_create_table_message.yaml
+    - include:
+        file: db/changelog/02_create_table_profile.yaml
+    - include:
+        file: db/changelog/03_add_collumn_active_on_profile.yaml
+    - include:
+        file: db/changelog/04_load_data_to_profile.yaml
+
+
+
