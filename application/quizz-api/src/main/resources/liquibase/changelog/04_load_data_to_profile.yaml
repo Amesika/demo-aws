@@ -1,0 +1,28 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220309-03
+    author: Amesika
+    changes:
+    - loadData:
+        tableName: PROFILE
+        file: data/profiles.csv
+        separator: ;
+        quotchar: ''''
+        encoding: UTF-8
+        commentLineStartsWith: //
+        columns:
+        - column: 
+            header: code
+            name: code
+            type: STRING
+        - column: 
+            header: label
+            name: label
+            type: STRING
+        - column: 
+            header: active
+            name: Active
+            type: BOOLEAN
+
+
+

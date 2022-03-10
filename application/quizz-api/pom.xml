@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<lombok.version>1.18.0</lombok.version>
+		<liquibase.version>4.8.0</liquibase.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -47,6 +48,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- ## Swagger ## -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
@@ -56,6 +58,18 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
+		</dependency>
+
+		<!-- ## Liquibase ## -->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-maven-plugin</artifactId>
+			<version>${liquibase.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -116,6 +130,15 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${liquibase.version}</version>
+				<configuration>                  
+					<propertyFile>src/main/resources/liquibase/liquibase-${spring.profiles.active}.properties</propertyFile>
+				</configuration>                
 			</plugin>
 		</plugins>
 	</build>

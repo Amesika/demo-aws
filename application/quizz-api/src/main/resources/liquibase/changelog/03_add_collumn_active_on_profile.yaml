@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220309-02
+    author: Amesika
+    changes:
+    - addColumn:
+        tableName: PROFILE
+        columns:
+        - column:
+            name: Active
+            type: boolean
