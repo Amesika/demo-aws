@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-8
+    author: Amesika
+    changes:
+    - addForeignKeyConstraint:  
+        baseColumnNames:  sujet_id  
+        baseTableName:  question  
+        constraintName:  fk_question_sujet 
+        referencedColumnNames:  id   
+        referencedTableName:  sujet

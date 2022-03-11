@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-10
+    author: Amesika
+    changes:
+    - addForeignKeyConstraint:  
+        baseColumnNames:  score_id  
+        baseTableName:  score_question_reponse 
+        constraintName:  fk_score_question_reponse_score
+        referencedColumnNames:  id   
+        referencedTableName:  score
+
+    - addForeignKeyConstraint:  
+        baseColumnNames:  question_id  
+        baseTableName:  score_question_reponse 
+        constraintName:  fk_score_question_reponse_question
+        referencedColumnNames:  id   
+        referencedTableName:  question
+
+    - addForeignKeyConstraint:  
+        baseColumnNames:  reponse_id  
+        baseTableName:  score_question_reponse 
+        constraintName:  fk_score_question_reponse_reponse
+        referencedColumnNames:  id   
+        referencedTableName:  reponse

@@ -1,0 +1,22 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-4
+    author: Amesika
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: reponse_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: titre
+            type: VARCHAR(255)
+        - column:
+            name: question_id
+            type: BIGINT
+        tableName: reponse

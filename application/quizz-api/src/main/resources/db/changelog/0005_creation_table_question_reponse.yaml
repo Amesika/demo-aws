@@ -1,0 +1,18 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-5
+    author: Amesika
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: question_id
+            type: BIGINT
+            constraints:
+              nullable: false
+        - column:
+            name: reponse_id
+            type: BIGINT
+            constraints:
+              nullable: false
+        tableName: question_reponse

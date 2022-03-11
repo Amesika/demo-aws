@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-6
+    author: Amesika
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: score_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: utilisateur_id
+            type: BIGINT
+        - column:
+            name: sujet_id
+            type: BIGINT
+        - column:
+            name: score
+            type: NUMERIC
+        tableName: score

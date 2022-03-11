@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-14
+    author: Amesika
+    changes:
+    - loadData:
+        encoding:  UTF-8    
+        file:  db/data/3_questions.csv    
+        quotchar:  ''''     
+        separator:  ;    
+        tableName:  question  

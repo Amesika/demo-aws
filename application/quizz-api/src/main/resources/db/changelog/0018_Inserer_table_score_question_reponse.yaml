@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-18
+    author: Amesika
+    changes:
+    - loadData:
+        encoding:  UTF-8    
+        file:  db/data/7_scores_questions_reponses.csv    
+        quotchar:  ''''     
+        separator:  ;    
+        tableName:  score_question_reponse   

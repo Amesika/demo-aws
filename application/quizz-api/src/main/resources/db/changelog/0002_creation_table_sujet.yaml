@@ -1,21 +1,19 @@
 databaseChangeLog:
 - changeSet:
-    id: 20220309-01
+    id: 20220311-2
     author: Amesika
     changes:
     - createTable:
-        tableName: PROFILE
         columns:
         - column:
             autoIncrement: true
             constraints:
+              nullable: false
               primaryKey: true
-              primaryKeyName: PROFILE_pkey
+              primaryKeyName: sujet_pkey
             name: id
-            type: bigint
+            type: BIGINT
         - column:
-            name: code
+            name: titre
             type: VARCHAR(255)
-        - column:
-            name: label
-            type: VARCHAR(255)
+        tableName: sujet

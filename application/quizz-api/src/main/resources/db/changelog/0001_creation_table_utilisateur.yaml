@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-1
+    author: Amesika
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: utilisateur_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: nom
+            type: VARCHAR(255)
+        - column:
+            name: prenom
+            type: VARCHAR(255)
+        - column:
+            name: role
+            type: VARCHAR(255)
+        tableName: utilisateur

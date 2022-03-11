@@ -1,0 +1,18 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-11
+    author: Amesika
+    changes:
+    - addForeignKeyConstraint:  
+        baseColumnNames:  utilisateur_id  
+        baseTableName:  score 
+        constraintName:  fk_score_utilisateur
+        referencedColumnNames:  id   
+        referencedTableName:  utilisateur
+
+    - addForeignKeyConstraint:  
+        baseColumnNames:  sujet_id  
+        baseTableName:  score 
+        constraintName:  fk_score_sujet
+        referencedColumnNames:  id   
+        referencedTableName:  sujet

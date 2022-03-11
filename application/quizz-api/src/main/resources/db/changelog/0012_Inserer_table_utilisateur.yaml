@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: 20220311-12
+    author: Amesika
+    changes:
+    - loadData:     
+        columns:    
+        - column:    
+            header:  nom    
+            name:  nom    
+            type:  VARCHAR(255)   
+        - column:    
+            header:  prenom    
+            name:  prenom    
+            type:  VARCHAR(255) 
+        - column:    
+            header:  role    
+            name:  role    
+            type:  VARCHAR(255) 
+        commentLineStartsWith:  //    
+        encoding:  UTF-8    
+        file:  db/data/1_utilisateurs.csv    
+        quotchar:  ''''     
+        separator:  ;    
+        tableName:  utilisateur 
