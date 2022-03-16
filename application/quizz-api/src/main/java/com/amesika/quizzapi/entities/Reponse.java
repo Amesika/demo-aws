@@ -31,8 +31,11 @@ public class Reponse {
     @Column()
     String titre;
 
+    @Column()
+    String repdex;
+
     @ManyToOne
-    @JoinColumn(name="question_id", nullable = false)
+    @JoinColumn(name="question_id", insertable = false, updatable = false)
     Question question;
 
 }

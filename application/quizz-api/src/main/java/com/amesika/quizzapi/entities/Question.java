@@ -7,13 +7,14 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -41,11 +42,16 @@ public class Question {
     @Column()
     String detail;
 
+    @Column()
+    String repdex;
+
     @ManyToOne
     @JoinColumn(name="sujet_id", insertable = false, updatable = false)
     Sujet sujet;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name="question_id")
     List<Reponse> reponses = new ArrayList<>();
+
 
 }

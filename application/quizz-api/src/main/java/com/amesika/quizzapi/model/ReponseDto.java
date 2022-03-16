@@ -15,4 +15,5 @@ public class ReponseDto {
   
     private long id;
     private String titre;
+    private String repdex;
 }

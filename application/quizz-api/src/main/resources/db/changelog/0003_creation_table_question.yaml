@@ -20,6 +20,9 @@ databaseChangeLog:
             name: detail
             type: VARCHAR(2048)
         - column:
+            name: repdex
+            type: VARCHAR(5)
+        - column:
             name: sujet_id
             type: BIGINT
         tableName: question

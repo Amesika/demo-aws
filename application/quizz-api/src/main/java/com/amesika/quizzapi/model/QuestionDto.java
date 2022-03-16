@@ -19,4 +19,5 @@ public class QuestionDto {
     private String titre;
     private String detail;
     private List<ReponseDto> reponses;
+    private String repdex;
 }

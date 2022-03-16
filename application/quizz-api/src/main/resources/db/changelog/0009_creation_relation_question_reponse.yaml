@@ -9,17 +9,3 @@ databaseChangeLog:
         constraintName:  fk_reponse_question
         referencedColumnNames:  id   
         referencedTableName:  question
-
-    - addForeignKeyConstraint:  
-        baseColumnNames:  reponse_id  
-        baseTableName:  question_reponse  
-        constraintName:  fk_question_reponse_reponse
-        referencedColumnNames:  id   
-        referencedTableName:  reponse
-
-    - addForeignKeyConstraint:  
-        baseColumnNames:  question_id  
-        baseTableName:  question_reponse 
-        constraintName:  fk_question_reponse_question
-        referencedColumnNames:  id   
-        referencedTableName:  question

@@ -5,7 +5,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding:  UTF-8    
-        file:  db/data/6_scores.csv    
+        file:  db/data/5_scores.csv    
         quotchar:  ''''     
         separator:  ;    
         tableName:  score  

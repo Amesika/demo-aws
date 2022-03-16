@@ -17,6 +17,9 @@ databaseChangeLog:
             name: titre
             type: VARCHAR(255)
         - column:
+            name: repdex
+            type: VARCHAR(5)
+        - column:
             name: question_id
             type: BIGINT
         tableName: reponse
