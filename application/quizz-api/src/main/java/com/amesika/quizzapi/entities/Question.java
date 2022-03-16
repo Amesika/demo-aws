@@ -51,5 +51,8 @@ public class Question {
     @JoinColumn(name="question_id")
     List<Reponse> reponses = new ArrayList<>();
 
+    @OneToMany(mappedBy = "question")
+    List<QuestionReponse>QuestionReponses = new ArrayList<>();
+
 
 }

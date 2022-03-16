@@ -9,9 +9,9 @@ databaseChangeLog:
     - include:
         file: db/changelog/0004_creation_table_reponse.yaml
     - include:
-        file: db/changelog/0006_creation_table_score.yaml
+        file: db/changelog/0005_creation_table_question_reponse.yaml
     - include:
-        file: db/changelog/0007_creation_table_score_question_reponse.yaml
+        file: db/changelog/0006_creation_table_score.yaml
     - include:
         file: db/changelog/0008_creation_relation_sujet_question.yaml
     - include:
@@ -19,9 +19,7 @@ databaseChangeLog:
     - include:
         file: db/changelog/0010_creation_relation_score_question_reponse.yaml
     - include:
-        file: db/changelog/0011_creation_table_score_utilisateur_sujet.yaml
-    - include:
-        file: db/changelog/0012_Inserer_table_utilisateur.yaml
+        file: db/changelog/0011_creation_relation_score_utilisateur_sujet.yaml
     - include:
         file: db/changelog/0013_Inserer_table_sujet.yaml
     - include:
@@ -29,8 +27,10 @@ databaseChangeLog:
     - include:
         file: db/changelog/0015_Inserer_table_reponse.yaml
     - include:
+        file: db/changelog/0016_Inserer_table_utilisateur.yaml
+    - include:
         file: db/changelog/0017_Inserer_table_score.yaml
     - include:
         file: db/changelog/0018_Inserer_table_score_question_reponse.yaml
-    
+
 

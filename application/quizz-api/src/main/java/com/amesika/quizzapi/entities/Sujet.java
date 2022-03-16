@@ -39,5 +39,8 @@ public class Sujet {
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name="sujet_id")
     List<Question> questions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "sujet")
+    List<Score> scores = new ArrayList<>();
     
 }
