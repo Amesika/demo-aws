@@ -1,6 +1,26 @@
-version: '3.5'
+version: '3.9'
 
 services:
+  
+  keycloak:
+    depends_on:
+      - postgres
+    container_name: local_keycloak
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres
+      DB_DATABASE: ${POSTGRESQL_DB:-quizz.db}
+      DB_USER: ${POSTGRESQL_USER:-user}
+      DB_PASSWORD: ${POSTGRESQL_PASS:-password}
+      KEYCLOAK_USER: ${KEYCLOAK_USER:-keycloak_admin}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD:-password}
+    image: jboss/keycloak:${KEYCLOAK_VERSION:-16.1.1}
+    ports:
+      - "28080:8080"
+    restart: unless-stopped
+    networks:
+      - local-keycloak
+
   postgres:
     container_name: postgres_container
     image: postgres
@@ -14,10 +34,12 @@ services:
     ports:
       - "5432:5432"
     networks:
+      - local-keycloak
       - postgres
     restart: unless-stopped
 
 networks:
+  local-keycloak:
   postgres:
     driver: bridge
 
