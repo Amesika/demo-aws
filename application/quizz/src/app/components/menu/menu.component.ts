@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MegaMenuItem, MenuItem } from 'primeng/api';
-import { MENUS } from 'src/app/constants/menu-constant';
+import { MENUS, USER_MENUS } from 'src/app/constants/menu-constant';
 
 @Component({
   selector: 'app-menu',
@@ -9,9 +9,11 @@ import { MENUS } from 'src/app/constants/menu-constant';
 })
 export class MenuComponent implements OnInit {
 
-  items!: MegaMenuItem[];
+  items!: MenuItem[];
+  userMenu!: MenuItem[];
 
   ngOnInit() {
     this.items = MENUS;
+    this.userMenu = USER_MENUS;
   }
 }
