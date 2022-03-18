@@ -8,11 +8,15 @@ import {MenubarModule} from 'primeng/menubar';
 import {MenuModule} from 'primeng/menu';
 import {TabViewModule} from 'primeng/tabview';
 import {ButtonModule} from 'primeng/button';
+import { RouterModule } from '@angular/router';
+import { QUIZZ_ROUTES } from './routes/app.routes';
+import { DevComponent } from './dev/dev.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DevComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -21,6 +25,7 @@ import {ButtonModule} from 'primeng/button';
     MenubarModule,
     TabViewModule,
     ButtonModule,
+    RouterModule.forRoot(QUIZZ_ROUTES), 
   ],
   providers: [],
   bootstrap: [AppComponent]
