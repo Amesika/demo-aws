@@ -1,21 +1,40 @@
-<h1>Sujets</h1>
+<div class="grid">
+    <div class="col-11">
+        <h1>Sujets</h1>
+    </div>
+    <div class="col flex align-items-center justify-content-center">
+        <button pButton pRipple type="button" (click)="sujetform.showPositionDialog('top')" title="Ajouter" icon="pi pi-plus"></button>
+    </div>
+</div>
 
 <p-table [value]="sujets" responsiveLayout="scroll" [contextMenu]="menu">
     <ng-template pTemplate="header">
         <tr>
+            <th pSortableColumn="id" [ngStyle]="{'width':'150px'}">Numéro <p-sortIcon field="id"></p-sortIcon>
+            </th>
             <th pSortableColumn="titre">Titre <p-sortIcon field="titre"></p-sortIcon>
             </th>
-            <th class="action" [ngStyle]="{'width':'90px'}" >Action</th>
+            <th pSortableColumn="questions.length">Nombre de questions <p-sortIcon field="questions.length">
+                </p-sortIcon>
+            </th>
+            <th class="action" [ngStyle]="{'width':'90px'}">Action</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-sujet>
         <tr>
             <td>
+                #{{sujet.id}}
+            </td>
+            <td>
                 {{sujet.titre}}
+            </td>
+            <td>
+                Nombre de question(s) - {{sujet.questions.length}}
             </td>
             <!-- Action -->
             <td class="action" [ngStyle]="{'width':'90px'}">
-                <button pButton pRipple type="button" (click)="menu.toggle($event)" icon="pi pi-cog" class="p-button-rounded p-button-text" ></button>
+                <button pButton pRipple type="button" (click)="menu.toggle($event)" icon="pi pi-cog"
+                    class="p-button-rounded p-button-text"></button>
             </td>
         </tr>
     </ng-template>
@@ -23,3 +42,4 @@
 
 <p-menu #menu [popup]="true" [model]="items"></p-menu>
 
+<app-sujet-form #sujetform></app-sujet-form>
