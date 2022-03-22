@@ -15,6 +15,9 @@ import {InputTextModule} from 'primeng/inputtext';
 import { SujetFormComponent } from './sujet-form/sujet-form.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {PanelModule} from 'primeng/panel';
+import { ReactiveFormsModule } from '@angular/forms';
+import {TooltipModule} from 'primeng/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import {PanelModule} from 'primeng/panel';
     PanelModule,
     InputTextareaModule,
     CommonModule,
+    TooltipModule,
+    ReactiveFormsModule,
   ],
   providers:[
     SujetService

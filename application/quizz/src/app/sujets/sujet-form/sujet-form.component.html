@@ -1,44 +1,91 @@
-<p-dialog [header]="dialogTitle||'Titre'" [(visible)]="displayPosition" [position]="position" [modal]="true"
-    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
-    <div>
-        <div class="grid p-fluid">
-            <div class="col-12 ">
-                <div class="p-inputgroup">
-                    <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
-                    <input type="text" pInputText placeholder="Sujet">
-                </div>
-            </div>
-        </div>
-        <p-panel header="Questions" [toggleable]="true" [collapsed]="true">
+<form [formGroup]="sujetForm" (ngSubmit)="submitSujet()">
+    <p-dialog [header]="dialogTitle||'Titre'" [(visible)]="displayPosition" [style]="{width: '50vw'}" [position]="position" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+        <div>
+            <!-- Sujet -->
             <div class="grid p-fluid">
                 <div class="col-12 ">
-                    <input type="text" pInputText placeholder="Question">
-                </div>
-                <div class="col-12 ">
-                    <textarea [rows]="3" pInputTextarea></textarea>
-                </div>
-                <div class="col-12 ">
-                    <p-panel header="Réponses" [toggleable]="true" [collapsed]="true">
-                        <div class="grid p-fluid">
-                            <div class="col-12 ">
-                                <input type="text" pInputText placeholder="Réponse">
-                            </div>
-                            <div class="col-12 ">
-                                <p-button label="Ajouter une réponse"></p-button>
-                            </div>
-                        </div>
-                    </p-panel>
-                </div>
-                <div class="col-12 ">
-                    <input type="text" pInputText placeholder="Bonne Réponse">
-                </div>
-                <div class="col-12 ">
-                    <p-button label="Ajouter une question"></p-button>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
+                        <input type="text" formControlName="titre" pInputText placeholder="Sujet">
+                    </div>
                 </div>
             </div>
-        </p-panel>
-    </div>
-    <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
-    </ng-template>
-</p-dialog>
+
+
+            <!-- Questions  -->
+            <ng-container formArrayName="questions">
+                <p-panel header="Questions - {{questions.controls.length}}" [toggleable]="true" [collapsed]="true">
+                    <div class="grid p-fluid" [formGroup]="questionForm">
+                        <div class="col-12 ">
+                            <input type="text" formControlName="titre" pInputText placeholder="Question">
+                        </div>
+                        <div class="col-12 ">
+                            <textarea [rows]="3" formControlName="detail" pInputTextarea placeholder="Details"></textarea>
+                        </div>
+                        <div class="col-12 ">
+
+                            <!-- Réponses  -->
+                            <ng-container formArrayName="reponses">
+                                <p-panel header="Réponses - {{reponses.controls.length}}" [toggleable]="true" [collapsed]="true">
+                                    <div class="grid p-fluid" [formGroup]="questionForm">
+                                        <div class="col-12 ">
+                                            <input type="text" pInputText placeholder="Réponse">
+                                        </div>
+                                        <div class="col-12 ">
+                                            <p-button (click)="addReponse()" label="Ajouter une réponse" [disabled]="!questionForm.valid"></p-button>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <ng-container *ngFor="let reponse of reponses.controls; let i = index">
+                                                <p-card>
+                                                    <div class="grid">
+                                                        <div class=" col flex align-content-center">
+                                                            <div class="text">{{reponse.value.titre}}</div>
+                                                        </div>
+                                                        <div class=" col ">
+                                                            <div class="flex justify-content-end">
+                                                                <button pButton pRipple type="button " (click)="updateReponse(i)" pTooltip="Modifier" icon="pi pi-pencil " class="align-content-center p-button-rounded p-button-text "></button>
+                                                                <button pButton pRipple type="button " (click)="deleteReponse(i)" pTooltip="Supprimer" icon="pi pi-trash " class="align-content-center p-button-rounded p-button-danger p-button-text "></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </p-card>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </p-panel>
+                            </ng-container>
+                        </div>
+                        <div class="col-12 ">
+                            <input type="text" formControlName="repdex" pInputText placeholder="Bonne Réponse">
+                        </div>
+                        <div class="col-12 ">
+                            <p-button (click)="addQuestion()" label="Ajouter une question" [disabled]="!questionForm.valid"></p-button>
+                        </div>
+                        <div class="col-12 ">
+                            <ng-container *ngFor="let question of questions.controls; let i = index">
+                                <p-card>
+                                    <div class="grid">
+                                        <div class=" col flex align-content-center">
+                                            <div class="text">{{question.value.titre}}</div>
+                                        </div>
+                                        <div class=" col ">
+                                            <div class="flex justify-content-end">
+                                                <button pButton pRipple type="button " (click)="updateQuestion(i)" pTooltip="Modifier" icon="pi pi-pencil " class="align-content-center p-button-rounded p-button-text "></button>
+                                                <button pButton pRipple type="button " (click)="deleteQuestion(i)" pTooltip="Supprimer" icon="pi pi-trash " class="align-content-center p-button-rounded p-button-danger p-button-text "></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p-card>
+                            </ng-container>
+                        </div>
+                    </div>
+                </p-panel>
+            </ng-container>
+        </div>
+
+        <ng-template pTemplate="footer">
+            <p-button (click)="close() " label="Annuler " styleClass="p-button-text "></p-button>
+            <p-button icon="pi pi-check" type="submit " label="Valider " [disabled]="!sujetForm.valid" styleClass="p-button-text "></p-button>
+        </ng-template>
+    </p-dialog>
+</form>
