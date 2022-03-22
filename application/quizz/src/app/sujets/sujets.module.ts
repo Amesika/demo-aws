@@ -13,6 +13,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import { SujetFormComponent } from './sujet-form/sujet-form.component';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 import {PanelModule} from 'primeng/panel';
 
 @NgModule({
@@ -31,6 +32,7 @@ import {PanelModule} from 'primeng/panel';
     DialogModule,
     InputTextModule,
     PanelModule,
+    InputTextareaModule,
     CommonModule,
   ],
   providers:[
