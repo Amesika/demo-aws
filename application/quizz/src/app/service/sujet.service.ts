@@ -15,8 +15,11 @@ export class SujetService {
   }
 
   createSujet(sujet:SujetModel){
-     console.log(sujet);
-     this.messageService.add({severity:"success", summary: "Créationd d'un sujet", detail: JSON.stringify(sujet)});
+     this.messageService.add({severity:"success", summary: "Création d'un sujet", detail: JSON.stringify(sujet.titre)});
   }
+
+  updateSujet(sujet:SujetModel){
+    this.messageService.add({severity:"success", summary: "Modification d'un sujet", detail: JSON.stringify(sujet.titre)});
+ }
 
 }

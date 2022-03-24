@@ -26,19 +26,24 @@ export class SujetFormComponent implements OnInit {
 
   sujet!: SujetModel;
 
-  constructor(private fb: FormBuilder, private sujetSvr:SujetService,private messageService: MessageService) {
+  isUpdate!:Boolean;
+
+  constructor(private fb: FormBuilder, private sujetSvr: SujetService, private messageService: MessageService) {
     this.sujetForm = this.fb.group({
+      id: 0,
       titre: ['', Validators.required],
-      questions: this.fb.array([], [Validators.required,Validators.minLength(1) ])
+      questions: this.fb.array([], [Validators.required, Validators.minLength(1)])
     });
     this.questionForm = this.fb.group({
+      id: 0,
       titre: ['', Validators.required],
       detail: '',
       repdex: ['', Validators.required],
-      reponses: this.fb.array([], [Validators.required,Validators.minLength(2)])
+      reponses: this.fb.array([], [Validators.required, Validators.minLength(2)])
     });
 
     this.reponseForm = this.fb.group({
+      id: 0,
       titre: ['', Validators.required],
       repdex: ['', Validators.required],
     });
@@ -63,9 +68,12 @@ export class SujetFormComponent implements OnInit {
 
   submitSujet() {
     let sujet = this.sujetForm.value as SujetModel;
-    this.sujetSvr.createSujet(sujet);
     this.displayPosition = false;
-    
+    if(!this.isUpdate){
+      this.sujetSvr.createSujet(sujet);
+    }else{
+      this.sujetSvr.updateSujet(sujet);
+    }
   }
 
   close() {
@@ -76,8 +84,8 @@ export class SujetFormComponent implements OnInit {
   addQuestion() {
     if (this.questionForm.valid) {
       const newQuestionForm = this.fb.group(this.questionForm.value);
-      newQuestionForm.controls["reponses"].setValue (this.reponses.value);  
-      this.questions.push(newQuestionForm);      
+      newQuestionForm.controls["reponses"].setValue(this.reponses.value);
+      this.questions.push(newQuestionForm);
       this.questionForm.reset();
       this.reponses.clear();
     }
@@ -86,8 +94,8 @@ export class SujetFormComponent implements OnInit {
   updateQuestion(questionIndex: number) {
     let reponses = this.questions.at(questionIndex).value.reponses
     this.questionForm = this.fb.group(this.questions.at(questionIndex).value);
-    this.questionForm.removeControl('reponses'); 
-    this.questionForm.setControl('reponses', this.fb.array(reponses, [Validators.required,Validators.minLength(2)]));
+    this.questionForm.removeControl('reponses');
+    this.questionForm.setControl('reponses', this.fb.array(reponses, [Validators.required, Validators.minLength(2)]));
     this.questionForm.controls['titre'].setValidators(Validators.required);
     this.questionForm.controls['repdex'].setValidators(Validators.required);
     this.questions.removeAt(questionIndex);
@@ -100,9 +108,9 @@ export class SujetFormComponent implements OnInit {
   /** La gestions des réponses */
   addReponse() {
     if (this.reponseForm.valid) {
-    const newReponseForm = this.fb.group(this.reponseForm.value);
-    this.reponseForm.reset();
-    this.reponses.push(newReponseForm);
+      const newReponseForm = this.fb.group(this.reponseForm.value);
+      this.reponseForm.reset();
+      this.reponses.push(newReponseForm);
     }
   }
 
@@ -115,6 +123,12 @@ export class SujetFormComponent implements OnInit {
 
   deleteReponse(reponseIndex: number) {
     this.reponses.removeAt(reponseIndex);
+  }
+
+  setSusjet(sujet: SujetModel) {
+    this.sujetForm.controls['id'].setValue(sujet.id)
+    this.sujetForm.controls['titre'].setValue(sujet.titre)
+    this.sujetForm.setControl('questions', this.fb.array(sujet.questions, [Validators.required, Validators.minLength(2)]));
   }
 
 }

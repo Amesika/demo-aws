@@ -13,9 +13,11 @@ import { SujetFormComponent } from './sujet-form/sujet-form.component';
 export class SujetsComponent implements OnInit {
 
   @ViewChild('sujetform') sujetform!:SujetFormComponent;
+  @ViewChild('contextMenu') tableContextMenu!:any;
 
   sujets!: SujetModel[];
   items!: MenuItem[];
+  selectedSujet!:SujetModel;
 
   actions: MenuItem[] = [{
     label: 'Update',
@@ -48,7 +50,7 @@ export class SujetsComponent implements OnInit {
         items: [{
           label: 'Modifier',
           icon: 'pi pi-refresh',
-
+          command: ((even:SujetModel)=>this.open("Modifier un sujet",true, this.selectedSujet))
         },
         {
           label: 'Supprimer',
@@ -59,8 +61,18 @@ export class SujetsComponent implements OnInit {
     ];
   }
 
-  open(title:string){
+  open(title:string, isUpdate:boolean, data?:SujetModel){
     this.sujetform.dialogTitle = title;
+    this.sujetform.isUpdate = isUpdate;
     this.sujetform.showPositionDialog('top')
+    if(data)
+      this.sujetform.setSusjet(data);
+    
+    console.log(data);
+  }
+
+  selectRow(event:any, sujet:SujetModel){
+    this.selectedSujet =  sujet;
+    this.tableContextMenu.toggle(event);
   }
 }
