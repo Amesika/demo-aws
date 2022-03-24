@@ -20,7 +20,7 @@
                 <div class="col-12 ">
                     <span class="requered-txt-title">Questions ( min 1 )</span><span class="requered">*</span> 
                 </div>
-                <p-panel header="Questions - {{questions.controls.length}}" [toggleable]="true" [collapsed]="true">
+                <p-panel header="Questions - {{questions.controls.length}}" [toggleable]="true">
                     <div class="grid p-fluid" [formGroup]="questionForm">
                         <div class="col-12 ">
                             <span class="requered-txt-title">Titre</span><span class="requered">*</span> 
@@ -38,7 +38,7 @@
                                 <div class="col-12 ">
                                     <span class="requered-txt-title">Réponses ( min 2 )</span><span class="requered">*</span> 
                                 </div>
-                                <p-panel header="Réponses - {{reponses.controls.length}}" [toggleable]="true" [collapsed]="true">
+                                <p-panel header="Réponses - {{reponses.controls.length}}" [toggleable]="true">
                                     <div class="grid p-fluid" [formGroup]="reponseForm">
                                         <div class="col-12 ">
                                             <span class="requered-txt-title">Titre</span><span class="requered">*</span> 
@@ -107,9 +107,9 @@
             </ng-container>
 
         </div>
-        <div class="col-12 ">
-            <span class="requered">*</span> <span class="requered-txt">Champs Obligatoire</span>
-        </div>
+            <div class="col-12 ">
+                <span class="requered">*</span> <span class="requered-txt">Champs Obligatoire</span>
+            </div>
         <ng-template pTemplate="footer">
             <p-button (click)="close() " label="Annuler " styleClass="p-button-text "></p-button>
             <p-button icon="pi pi-check" type="submit " label="Valider " [disabled]="!sujetForm.valid" styleClass="p-button-text "></p-button>
