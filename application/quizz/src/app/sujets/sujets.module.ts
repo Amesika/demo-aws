@@ -17,6 +17,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {PanelModule} from 'primeng/panel';
 import { ReactiveFormsModule } from '@angular/forms';
 import {TooltipModule} from 'primeng/tooltip';
+import { MessageService } from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
 
 
 @NgModule({
@@ -39,9 +41,11 @@ import {TooltipModule} from 'primeng/tooltip';
     CommonModule,
     TooltipModule,
     ReactiveFormsModule,
+    ToastModule,
   ],
   providers:[
-    SujetService
+    SujetService,
+    MessageService
   ]
 })
 export class SujetsModule { }

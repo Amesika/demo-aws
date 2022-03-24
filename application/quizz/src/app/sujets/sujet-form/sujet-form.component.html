@@ -4,6 +4,9 @@
             <!-- Sujet -->
             <div class="grid p-fluid">
                 <div class="col-12 ">
+                    <span class="requered-txt-title">Sujet</span><span class="requered">*</span> 
+                </div>
+                <div class="col-12 ">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
                         <input type="text" formControlName="titre" pInputText placeholder="Sujet">
@@ -14,8 +17,14 @@
 
             <!-- Questions  -->
             <ng-container formArrayName="questions">
+                <div class="col-12 ">
+                    <span class="requered-txt-title">Questions ( min 1 )</span><span class="requered">*</span> 
+                </div>
                 <p-panel header="Questions - {{questions.controls.length}}" [toggleable]="true" [collapsed]="true">
                     <div class="grid p-fluid" [formGroup]="questionForm">
+                        <div class="col-12 ">
+                            <span class="requered-txt-title">Titre</span><span class="requered">*</span> 
+                        </div>
                         <div class="col-12 ">
                             <input type="text" formControlName="titre" pInputText placeholder="Question">
                         </div>
@@ -26,13 +35,25 @@
 
                             <!-- Réponses  -->
                             <ng-container formArrayName="reponses">
+                                <div class="col-12 ">
+                                    <span class="requered-txt-title">Réponses ( min 2 )</span><span class="requered">*</span> 
+                                </div>
                                 <p-panel header="Réponses - {{reponses.controls.length}}" [toggleable]="true" [collapsed]="true">
-                                    <div class="grid p-fluid" [formGroup]="questionForm">
+                                    <div class="grid p-fluid" [formGroup]="reponseForm">
                                         <div class="col-12 ">
-                                            <input type="text" pInputText placeholder="Réponse">
+                                            <span class="requered-txt-title">Titre</span><span class="requered">*</span> 
                                         </div>
                                         <div class="col-12 ">
-                                            <p-button (click)="addReponse()" label="Ajouter une réponse" [disabled]="!questionForm.valid"></p-button>
+                                            <input formControlName="titre" type="text" pInputText placeholder="Réponse">
+                                        </div>
+                                        <div class="col-12 ">
+                                            <span class="requered-txt-title">Index de la réponse</span><span class="requered">*</span> 
+                                        </div>
+                                        <div class="col-12 ">
+                                            <input type="text" formControlName="repdex" pInputText placeholder="Index de la réponse">
+                                        </div>
+                                        <div class="col-12 ">
+                                            <p-button (click)="addReponse()" label="Ajouter une réponse" [disabled]="!reponseForm.valid"></p-button>
                                         </div>
                                         <div class="col-12 ">
                                             <ng-container *ngFor="let reponse of reponses.controls; let i = index">
@@ -54,6 +75,9 @@
                                     </div>
                                 </p-panel>
                             </ng-container>
+                        </div>
+                        <div class="col-12 ">
+                            <span class="requered-txt-title">Index de la bonne réponse</span><span class="requered">*</span> 
                         </div>
                         <div class="col-12 ">
                             <input type="text" formControlName="repdex" pInputText placeholder="Bonne Réponse">
@@ -81,8 +105,11 @@
                     </div>
                 </p-panel>
             </ng-container>
-        </div>
 
+        </div>
+        <div class="col-12 ">
+            <span class="requered">*</span> <span class="requered-txt">Champs Obligatoire</span>
+        </div>
         <ng-template pTemplate="footer">
             <p-button (click)="close() " label="Annuler " styleClass="p-button-text "></p-button>
             <p-button icon="pi pi-check" type="submit " label="Valider " [disabled]="!sujetForm.valid" styleClass="p-button-text "></p-button>

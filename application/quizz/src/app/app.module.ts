@@ -11,6 +11,7 @@ import {ButtonModule} from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { QUIZZ_ROUTES } from './routes/app.routes';
 import { DevComponent } from './dev/dev.component';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DevComponent } from './dev/dev.component';
     MenubarModule,
     TabViewModule,
     ButtonModule,
+    ToastModule,
     RouterModule.forRoot(QUIZZ_ROUTES), 
   ],
   providers: [],

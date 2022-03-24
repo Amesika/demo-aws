@@ -10,3 +10,16 @@
 .text {
     align-self: center;
 }
+
+.requered{
+    color: red;
+    margin: 5px;
+}
+
+.requered-txt{
+    font-size: small;
+}
+
+.requered-txt-title{
+    font-weight: bolder;
+}

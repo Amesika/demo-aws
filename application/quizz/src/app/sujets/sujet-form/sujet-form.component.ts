@@ -3,6 +3,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SujetModel } from 'src/app/model/sujet-model';
 import { ReponseModel } from 'src/app/model/reponse-model';
 import { SujetModule } from 'src/app/sujet/sujet.module';
+import { SujetService } from 'src/app/service/sujet.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-sujet-form',
@@ -12,7 +14,7 @@ import { SujetModule } from 'src/app/sujet/sujet.module';
 export class SujetFormComponent implements OnInit {
 
   @Input()
-  dialogTitle!: string;
+  public dialogTitle!: string;
   displayPosition!: boolean;
   position!: string;
 
@@ -24,16 +26,18 @@ export class SujetFormComponent implements OnInit {
 
   sujet!: SujetModel;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private sujetSvr:SujetService,private messageService: MessageService) {
     this.sujetForm = this.fb.group({
       titre: ['', Validators.required],
-      questions: this.fb.array([])
+      questions: this.fb.array([], [Validators.required,Validators.minLength(1) ])
     });
     this.questionForm = this.fb.group({
       titre: ['', Validators.required],
       detail: '',
       repdex: ['', Validators.required],
+      reponses: this.fb.array([], [Validators.required,Validators.minLength(2)])
     });
+
     this.reponseForm = this.fb.group({
       titre: ['', Validators.required],
       repdex: ['', Validators.required],
@@ -45,7 +49,7 @@ export class SujetFormComponent implements OnInit {
   }
 
   get reponses() {
-    return this.sujetForm.controls["questions"] as FormArray;
+    return this.questionForm.controls["reponses"] as FormArray;
   }
 
 
@@ -58,7 +62,10 @@ export class SujetFormComponent implements OnInit {
   }
 
   submitSujet() {
-    console.log(this.sujetForm.value);
+    let sujet = this.sujetForm.value as SujetModel;
+    this.sujetSvr.createSujet(sujet);
+    this.displayPosition = false;
+    
   }
 
   close() {
@@ -67,40 +74,47 @@ export class SujetFormComponent implements OnInit {
 
   /** La gestions des questions */
   addQuestion() {
-    const newQuestionForm = this.fb.group( this.questionForm.value);
-    this.questionForm.reset();
-    this.questions.push(newQuestionForm);
-    console.log(this.questions.value)
+    if (this.questionForm.valid) {
+      const newQuestionForm = this.fb.group(this.questionForm.value);
+      newQuestionForm.controls["reponses"].setValue (this.reponses.value);  
+      this.questions.push(newQuestionForm);      
+      this.questionForm.reset();
+      this.reponses.clear();
+    }
   }
 
   updateQuestion(questionIndex: number) {
-    this.questionForm = this.fb.group( this.questions.at(questionIndex).value);
+    let reponses = this.questions.at(questionIndex).value.reponses
+    this.questionForm = this.fb.group(this.questions.at(questionIndex).value);
+    this.questionForm.removeControl('reponses'); 
+    this.questionForm.setControl('reponses', this.fb.array(reponses, [Validators.required,Validators.minLength(2)]));
     this.questionForm.controls['titre'].setValidators(Validators.required);
     this.questionForm.controls['repdex'].setValidators(Validators.required);
-    this.questions.removeAt(questionIndex);   
+    this.questions.removeAt(questionIndex);
   }
 
   deleteQuestion(questionIndex: number) {
     this.questions.removeAt(questionIndex);
   }
 
-    /** La gestions des réponses */
-    addReponse() {
-      /*/const newReponseForm = this.fb.group( this.questionForm.value);
-      this.questionForm.reset();
-      this.questions.push(newReponseForm);
-      console.log(this.questions.value)*/
+  /** La gestions des réponses */
+  addReponse() {
+    if (this.reponseForm.valid) {
+    const newReponseForm = this.fb.group(this.reponseForm.value);
+    this.reponseForm.reset();
+    this.reponses.push(newReponseForm);
     }
-  
-    updateReponse(questionIndex: number) {
-      /*this.questionForm = this.fb.group( this.questions.at(questionIndex).value);
-      this.questionForm.controls['titre'].setValidators(Validators.required);
-      this.questionForm.controls['repdex'].setValidators(Validators.required);
-      this.questions.removeAt(questionIndex); */  
-    }
-  
-    deleteReponse(questionIndex: number) {
-      //this.questions.removeAt(questionIndex);
-    }
+  }
+
+  updateReponse(reponseIndex: number) {
+    this.reponseForm = this.fb.group(this.reponses.at(reponseIndex).value);
+    this.reponseForm.controls['titre'].setValidators(Validators.required);
+    this.reponseForm.controls['repdex'].setValidators(Validators.required);
+    this.reponses.removeAt(reponseIndex);
+  }
+
+  deleteReponse(reponseIndex: number) {
+    this.reponses.removeAt(reponseIndex);
+  }
 
 }

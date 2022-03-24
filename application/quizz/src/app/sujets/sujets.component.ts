@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MenuItem, MessageService } from 'primeng/api';
 import { SujetModel } from '../model/sujet-model';
 import { SujetService } from '../service/sujet.service';
+import { SujetFormComponent } from './sujet-form/sujet-form.component';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { SujetService } from '../service/sujet.service';
   styleUrls: ['./sujets.component.css']
 })
 export class SujetsComponent implements OnInit {
+
+  @ViewChild('sujetform') sujetform!:SujetFormComponent;
 
   sujets!: SujetModel[];
   items!: MenuItem[];
@@ -25,7 +28,7 @@ export class SujetsComponent implements OnInit {
   ];
 
 
-  constructor(private sujetService: SujetService) { }
+  constructor(private sujetService: SujetService,private messageService: MessageService) { }
 
   ngOnInit() {
     this.sujetService.getSujets()
@@ -55,6 +58,9 @@ export class SujetsComponent implements OnInit {
       }
     ];
   }
-  
 
+  open(title:string){
+    this.sujetform.dialogTitle = title;
+    this.sujetform.showPositionDialog('top')
+  }
 }
