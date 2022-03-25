@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {TooltipModule} from 'primeng/tooltip';
 import { MessageService } from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 
 @NgModule({
@@ -42,10 +44,12 @@ import {ToastModule} from 'primeng/toast';
     TooltipModule,
     ReactiveFormsModule,
     ToastModule,
+    ConfirmDialogModule,
   ],
   providers:[
     SujetService,
-    MessageService
+    MessageService,
+    ConfirmationService
   ]
 })
 export class SujetsModule { }

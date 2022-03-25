@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { SujetModel } from '../model/sujet-model';
 import { SujetService } from '../service/sujet.service';
 import { SujetFormComponent } from './sujet-form/sujet-form.component';
@@ -30,7 +30,9 @@ export class SujetsComponent implements OnInit {
   ];
 
 
-  constructor(private sujetService: SujetService,private messageService: MessageService) { }
+  constructor(
+    private confirmationService: ConfirmationService,
+    private sujetService: SujetService) { }
 
   ngOnInit() {
     this.sujetService.getSujets()
@@ -50,11 +52,12 @@ export class SujetsComponent implements OnInit {
         items: [{
           label: 'Modifier',
           icon: 'pi pi-refresh',
-          command: ((even:SujetModel)=>this.open("Modifier un sujet",true, this.selectedSujet))
+          command: ((even:any)=>this.open("Modifier un sujet",true, this.selectedSujet))
         },
         {
           label: 'Supprimer',
           icon: 'pi pi-times',
+          command: ((even:any)=>this.delete())
         }
         ]
       }
@@ -74,5 +77,14 @@ export class SujetsComponent implements OnInit {
   selectRow(event:any, sujet:SujetModel){
     this.selectedSujet =  sujet;
     this.tableContextMenu.toggle(event);
+  }
+
+  delete(){
+    this.confirmationService.confirm({
+      message: "Voulez vous supprimer le sujet ?",
+      accept: () => {
+         this.sujetService.deleteSujet(this.selectedSujet);
+      }
+  });
   }
 }

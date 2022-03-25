@@ -21,5 +21,9 @@ export class SujetService {
   updateSujet(sujet:SujetModel){
     this.messageService.add({severity:"success", summary: "Modification d'un sujet", detail: JSON.stringify(sujet.titre)});
  }
+  
+  deleteSujet(sujet:SujetModel){
+    this.messageService.add({severity:"success", summary: "Supprimer un sujet", detail: JSON.stringify(sujet.titre)});
+  }
 
 }

@@ -1,4 +1,5 @@
 <p-toast></p-toast>
+
 <div class="grid">
     <div class="col-11">
         <h1>Sujets</h1>
@@ -42,5 +43,13 @@
 </p-table>
 
 <p-menu #contextMenu [popup]="true" [model]="items"></p-menu>
-
 <app-sujet-form #sujetform></app-sujet-form>
+<p-confirmDialog  #cd header="Confirmation" icon="pi pi-exclamation-triangle" [style]="{width: '50vw'}">
+    <ng-template pTemplate="header">
+        <b>Supprimer un sujet</b>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="Annuler" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Supprimer" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>

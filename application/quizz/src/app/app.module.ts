@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { QUIZZ_ROUTES } from './routes/app.routes';
 import { DevComponent } from './dev/dev.component';
 import {ToastModule} from 'primeng/toast';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -27,9 +30,10 @@ import {ToastModule} from 'primeng/toast';
     TabViewModule,
     ButtonModule,
     ToastModule,
+    HttpClientModule,
     RouterModule.forRoot(QUIZZ_ROUTES), 
   ],
-  providers: [],
+  providers: [MessageService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

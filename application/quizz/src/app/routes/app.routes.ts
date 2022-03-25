@@ -7,7 +7,7 @@ export const QUIZZ_ROUTES: Routes = [
     },
     {
         path: 'score',
-        loadChildren: () => import('../score/score.module').then(s => s.ScoreModule),
+        loadChildren: () => import('../scores/scores.module').then(s => s.ScoresModule),
     },
     {
         path: 'start',

@@ -1,0 +1,17 @@
+{
+        "id": 1,
+        "sujet": {
+            "id": 1,
+            "titre": "Sujet n° 1",
+            "questions": []
+        },
+        "score": 100,
+        "utilisateur": {
+            "id": 1,
+            "nom": "FRELJORD",
+            "prenom": "Ashe",
+            "role": "user"
+        },
+        "questionReponses": [],
+        "scoreDate": "Fri Mar 25 2022 16:22:37 GMT+0100"
+    }

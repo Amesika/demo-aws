@@ -1,0 +1,33 @@
+<p-table [value]="scores" selectionMode="single" [(selection)]="selectedScore" dataKey="id" responsiveLayout="scroll" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id" [ngStyle]="{'width':'150px'}">N°<p-sortIcon field="id"></p-sortIcon>
+            </th>
+            <th pSortableColumn="scoreDate" [ngStyle]="{'width':'150px'}">Date<p-sortIcon field="scoreDate"></p-sortIcon>
+            </th>
+            <th pSortableColumn="sujet.titre">Sujet<p-sortIcon field="sujet.titre"></p-sortIcon>
+            </th>
+            <th pSortableColumn="utilisateur.nom">Joueur<p-sortIcon field="utilisateur.nom"></p-sortIcon>
+            </th>
+            <th pSortableColumn="score">Score<p-sortIcon field="score"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-score>
+        <tr [pSelectableRow]="score" (click)="openDetails()" >
+            <td>
+                #{{score.id}}
+            </td>
+            <td>{{score.scoreDate | date: 'dd-MM-yyyy HH:mm:ss'}}
+            </td>
+            <td>
+                {{score.sujet.titre}}
+            </td>
+
+            <td>{{score.utilisateur.nom}} {{score.utilisateur.prenom}}
+            </td>
+            <td>{{score.score}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "sujet": {
+            "id": 1,
+            "titre": "Sujet n° 1",
+            "questions": []
+        },
+        "score": 100,
+        "utilisateur": {
+            "id": 1,
+            "nom": "FRELJORD",
+            "prenom": "Ashe",
+            "role": "user"
+        },
+        "questionReponses": [],
+        "scoreDate": "Fri Mar 25 2022 16:22:37 GMT+0100"
+    },
+    {
+        "id": 2,
+        "sujet": {
+            "id": 2,
+            "titre": "Sujet n° 2",
+            "questions": []
+        },
+        "score": 50,
+        "utilisateur": {
+            "id": 2,
+            "nom": "NOXUS",
+            "prenom": "Nasus",
+            "role": "user"
+        },
+        "questionReponses": [],
+        "scoreDate": "Fri Mar 25 2022 16:22:09 GMT+0100"
+    }
+]

@@ -19,12 +19,12 @@ export const USER_MENUS = [
     {
         label: 'Score',
         icon: 'pi pi-fw pi-chart-line',
-        routerLinks: ['/score'],
+        routerLink: '/score',
     },
     {
         label: 'Profile',
         icon: 'pi pi-user',
-        routerLinks: ['/utilisateur'],
+        routerLink: '/utilisateur',
     },
     {
         separator:true
