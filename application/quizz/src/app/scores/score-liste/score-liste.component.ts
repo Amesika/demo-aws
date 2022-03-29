@@ -12,7 +12,7 @@ export class ScoreListeComponent implements OnInit {
   scores!: Array<ScoreModel>;
   selectedScore!: ScoreModel;
 
-  constructor(route: ActivatedRoute,public router: Router) {
+  constructor(route: ActivatedRoute, public router: Router) {
     this.scores = route.snapshot.data['scores'];
   }
 
@@ -20,8 +20,7 @@ export class ScoreListeComponent implements OnInit {
   }
 
   openDetails() {
-    console.log('openDetails')
-    this.router.navigate(['score/details']);
+    this.router.navigate(['score/details'], { state: this.selectedScore });
   }
 
 }

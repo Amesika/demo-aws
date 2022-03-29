@@ -1,19 +1,21 @@
 <div class="grid">
+
+    <div class="col-12 back">
+        <button pButton pRipple label="Retour" class="p-button-outlined" icon="pi pi-arrow-circle-left" (click)="back()"></button>
+    </div>
     <div class="col-6 col-offset-3 ">
         <div class="text-center">
-            <div class="col-12 sve" >Votre score est</div>
-            <div class="col-12 score">{{score?.score || 0}} %</div>
+            <div class="col-12 sve">Votre score est</div>
+            <div class="col-12 score" [ngClass]="getColor()">{{score?.score || 0}} %</div>
             <div class="col-12 tkx">Merci!</div>
         </div>
         <div class="col-12">
             <p-panel header="Les détails" [toggleable]="true" [collapsed]="true">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="grid">
+                    <div class="col-6"><span class="pi-score"><i class="pi pi-calendar"></i> Date : </span>{{score?.scoreDate | date: 'dd-MM-yyyy HH:mm:ss'}}</div>
+                    <div class="col-6"><span class="pi-score"><i class="pi pi-user"></i> Joueur :</span> {{score?.utilisateur?.nom}} {{score?.utilisateur?.prenom}}</div>
+                    <div class="col-12"><span class="pi-score"><i class="pi pi-book"></i> Sujet : </span>{{score?.sujet?.titre}}</div>
+                </div>
             </p-panel>
         </div>
     </div>

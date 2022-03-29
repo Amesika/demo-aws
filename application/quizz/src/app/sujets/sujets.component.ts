@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { SujetModel } from '../model/sujet-model';
 import { SujetService } from '../service/sujet.service';
@@ -12,12 +13,12 @@ import { SujetFormComponent } from './sujet-form/sujet-form.component';
 })
 export class SujetsComponent implements OnInit {
 
-  @ViewChild('sujetform') sujetform!:SujetFormComponent;
-  @ViewChild('contextMenu') tableContextMenu!:any;
+  @ViewChild('sujetform') sujetform!: SujetFormComponent;
+  @ViewChild('contextMenu') tableContextMenu!: any;
 
   sujets!: SujetModel[];
   items!: MenuItem[];
-  selectedSujet!:SujetModel;
+  selectedSujet!: SujetModel;
 
   actions: MenuItem[] = [{
     label: 'Update',
@@ -32,7 +33,8 @@ export class SujetsComponent implements OnInit {
 
   constructor(
     private confirmationService: ConfirmationService,
-    private sujetService: SujetService) { }
+    private sujetService: SujetService,
+    public router: Router) { }
 
   ngOnInit() {
     this.sujetService.getSujets()
@@ -44,7 +46,7 @@ export class SujetsComponent implements OnInit {
         items: [{
           label: 'Commencer',
           icon: 'pi pi-play',
-          routerLink: '/start'
+          command: ((even: any) => this.start())
         }]
       },
       {
@@ -52,39 +54,43 @@ export class SujetsComponent implements OnInit {
         items: [{
           label: 'Modifier',
           icon: 'pi pi-refresh',
-          command: ((even:any)=>this.open("Modifier un sujet",true, this.selectedSujet))
+          command: ((even: any) => this.open("Modifier un sujet", true, this.selectedSujet))
         },
         {
           label: 'Supprimer',
           icon: 'pi pi-times',
-          command: ((even:any)=>this.delete())
+          command: ((even: any) => this.delete())
         }
         ]
       }
     ];
   }
 
-  open(title:string, isUpdate:boolean, data?:SujetModel){
+  open(title: string, isUpdate: boolean, data?: SujetModel) {
     this.sujetform.dialogTitle = title;
     this.sujetform.isUpdate = isUpdate;
     this.sujetform.showPositionDialog('top')
-    if(data)
+    if (data)
       this.sujetform.setSusjet(data);
-    
+
     console.log(data);
   }
 
-  selectRow(event:any, sujet:SujetModel){
-    this.selectedSujet =  sujet;
+  selectRow(event: any, sujet: SujetModel) {
+    this.selectedSujet = sujet;
     this.tableContextMenu.toggle(event);
   }
 
-  delete(){
+  delete() {
     this.confirmationService.confirm({
       message: "Voulez vous supprimer le sujet ?",
       accept: () => {
-         this.sujetService.deleteSujet(this.selectedSujet);
+        this.sujetService.deleteSujet(this.selectedSujet);
       }
-  });
+    });
+  }
+
+  start(): void {
+    this.router.navigate(['start'], { state: this.selectedSujet });
   }
 }

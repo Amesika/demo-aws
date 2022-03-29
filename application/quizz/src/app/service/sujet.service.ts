@@ -14,6 +14,10 @@ export class SujetService {
     return this.http.get<SujetModel[]>('assets/tmp/sujets.json');
   }
 
+  getSujet(id:number) {
+    return this.http.get<SujetModel>('assets/tmp/sujet.json');
+  }
+
   createSujet(sujet:SujetModel){
      this.messageService.add({severity:"success", summary: "Création d'un sujet", detail: JSON.stringify(sujet.titre)});
   }

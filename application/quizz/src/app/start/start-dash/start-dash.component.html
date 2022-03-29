@@ -1,1 +1,21 @@
-<p>start-dash works!</p>
+<div class="grid">
+    <div class="col-12 back">
+        <button pButton pRipple label="Retour" class="p-button-outlined" icon="pi pi-arrow-circle-left"
+            (click)="back()"></button>
+    </div>
+
+    <div class="col-12">
+        <div class="flex justify-content-center titre">
+            <p>Sujet : {{sujet?.titre}}</p>
+        </div>
+        <div class="flex justify-content-center">
+            <p>Nombres de questions {{sujet?.questions?.length}}</p>
+        </div>
+        <div class="flex justify-content-center">
+            <p>Cliquez sur le boutton pour lancer le quizz!</p>
+        </div>
+        <div class="flex justify-content-center">
+            <button pButton pRipple type="button" label="Commencer" class="p-button-rounded" (click)="launchStep()"></button>
+        </div>
+    </div>
+</div>

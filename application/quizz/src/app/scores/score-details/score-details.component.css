@@ -5,7 +5,7 @@
 
 :host ::ng-deep .sve{
     font-size: 2.5rem;
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 :host ::ng-deep .score{
@@ -16,4 +16,25 @@
 :host ::ng-deep .tkx{
     font-size: 2rem;
     letter-spacing: 0.25em;
+}
+
+:host .score-green{
+    color: #2ed573;
+}
+
+:host .score-orange{
+    color: #ffa502;
+}
+
+:host .score-red{
+    color: #ff4757;
+}
+.pi-score{
+    font-weight: bolder;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.back{
+    margin-top: 12px;
 }

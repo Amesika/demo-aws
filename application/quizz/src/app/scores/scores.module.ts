@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 import { ScoreDetailsComponent } from './score-details/score-details.component';
 import {PanelModule} from 'primeng/panel';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {PanelModule} from 'primeng/panel';
     TableModule,
     TabMenuModule,
     CommonModule,
+    ButtonModule,
     PanelModule,
     RouterModule.forChild(SCORES_ROUTES),
   ],

@@ -10,7 +10,6 @@ import {TabViewModule} from 'primeng/tabview';
 import {ButtonModule} from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { QUIZZ_ROUTES } from './routes/app.routes';
-import { DevComponent } from './dev/dev.component';
 import {ToastModule} from 'primeng/toast';
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
@@ -19,8 +18,7 @@ import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    DevComponent
+    MenuComponent
   ],
   imports: [
     BrowserAnimationsModule,

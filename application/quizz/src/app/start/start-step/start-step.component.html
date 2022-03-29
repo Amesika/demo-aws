@@ -1,0 +1,29 @@
+<div class="grid">
+    <div class="col-8 col-offset-2 ">
+        <div class="col-12">
+            <p><b>Questions :</b> </p>
+            <p>{{question?.titre}}</p>
+        </div>
+        <hr>
+        <div class="col-12">
+            <p><b>Réponses :</b> </p>
+            <div *ngFor="let reponse of question?.reponses" class="field-checkbox">
+                <p-radioButton [inputId]="reponse.id.toString()" name="reponse" [value]="reponse"
+                    [(ngModel)]="selectedReponse" (onClick)="addResponse()"></p-radioButton>
+                <label [for]="reponse.id">{{reponse?.titre}}</label>
+            </div>
+        </div>
+
+        <div class="col-12 flex justify-content-end">
+            <button pButton pRipple type="button" class="ml-2" label="Précedent" icon="pi pi-arrow-left"
+                (click)="prev()" [disabled]="questionIndex == 0"></button>
+            <button pButton pRipple type="button" class="ml-2" label="Suivant" icon="pi pi-arrow-right" (click)="next()"
+                [disabled]="questionIndex == (questionSize-1)" iconPos="right"></button>
+            <button pButton pRipple type="button" *ngIf="questionIndex == (questionSize-1)" class="ml-2"
+                label="Terminer" icon="pi pi-send" (click)="terminet()"></button>
+        </div>
+        <div class="col-12">
+            <p class="page">Nombre de questions : {{questionIndex + 1}} / {{questionSize}}</p>
+        </div>
+    </div>
+</div>

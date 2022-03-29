@@ -18,9 +18,5 @@ export class ScoreDashComponent implements OnInit {
       { label: 'Mon Score',  routerLink: '/score/mon-score', },
       { label: 'Tous les scores',  routerLink: '/score/all', },
     ];
-
-    console.log(new Date());
-    console.log(new Date().toString());
-    console.log(new Date().toDateString());
   }
 }

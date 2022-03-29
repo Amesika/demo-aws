@@ -1,0 +1,398 @@
+    {
+        "id": 1,
+        "titre": "Sujet n° 1",
+        "questions": [
+            {
+                "id": 1,
+                "titre": "Quelle est la capitale du Qatar ?",
+                "detail": "Amman est la capitale de la Jordanie  Abu Dhabi et Dubaï sont des capitales d’émirats des Émirats arabes unis.",
+                "repdex": "c",
+                "reponses": [
+                    {
+                        "id": 1,
+                        "titre": "Abu Dhabi",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 2,
+                        "titre": "Amman",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 3,
+                        "titre": "Doha",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 4,
+                        "titre": "Duba�",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "titre": "Lequel de ces États ne fait pas partie de l’Union européenne ?",
+                "detail": "La procédure d’adhésion de la Norvège à l’Union européenne est une des trois procédures (avec celles de la Suisse et de l’Islande) qui n’ont pas abouti. Par deux fois, en 1972 et 1994 et par voie référendaire, le peuple norvégien a refusé l’adhésion du pays à l’Union européenne.",
+                "repdex": "d",
+                "reponses": [
+                    {
+                        "id": 5,
+                        "titre": "Croatie",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 6,
+                        "titre": "Lituanie",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 7,
+                        "titre": "Malte",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 8,
+                        "titre": "Norv�ge",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "titre": "En France, quelle institution certifie les comptes de l’État ?",
+                "detail": "",
+                "repdex": "b",
+                "reponses": [
+                    {
+                        "id": 9,
+                        "titre": "La Cour de cassation",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 10,
+                        "titre": "La Cour des comptes",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 11,
+                        "titre": "Le Conseil constitutionnel",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 12,
+                        "titre": "Le Conseil d��tat",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "titre": "En France, un projet de loi est une initiative législative :",
+                "detail": "",
+                "repdex": "a",
+                "reponses": [
+                    {
+                        "id": 13,
+                        "titre": "gouvernementale inscrite � l�ordre du jour du Parlement.",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 14,
+                        "titre": "gouvernementale qui g�n�re automatiquement un r�f�rendum populaire.",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 15,
+                        "titre": "parlementaire inscrite � l�ordre du jour du Parlement.",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 16,
+                        "titre": "parlementaire qui entra�ne syst�matiquement la r�union du Parlement en congr�s � Versailles.",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "titre": "En France, la loi du 1er juillet 1901 est relative :",
+                "detail": "",
+                "repdex": "d",
+                "reponses": [
+                    {
+                        "id": 17,
+                        "titre": "� la la�cit�.",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 18,
+                        "titre": "� la s�paration des �glises et de l��tat.",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 19,
+                        "titre": "au travail dominical.",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 20,
+                        "titre": "aux associations.",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "titre": "En France, le déficit public prévisionnel de l’État représente en 2015 environ :",
+                "detail": "",
+                "repdex": "a",
+                "reponses": [
+                    {
+                        "id": 21,
+                        "titre": "4 % du PIB.",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 22,
+                        "titre": "20 % du PIB.",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 23,
+                        "titre": "52 % du PIB.",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 24,
+                        "titre": "90 % du PIB.",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "titre": "En France, par qui est perçu l’impôt sur le revenu ?",
+                "detail": "",
+                "repdex": "d",
+                "reponses": [
+                    {
+                        "id": 25,
+                        "titre": "la Direction du budget",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 26,
+                        "titre": "la Direction g�n�rale du Tr�sor",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 27,
+                        "titre": "la Direction g�n�rale des douanes et droits indirects",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 28,
+                        "titre": "la Direction g�n�rale des finances publiques",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "titre": "En France, quel événement historique célèbre-t-on le 11 novembre ?",
+                "detail": "La fin des combats de la Première Guerre mondiale (1914-1918) est marquée par la signature de l’armistice, le 11 novembre 1918.",
+                "repdex": "a",
+                "reponses": [
+                    {
+                        "id": 29,
+                        "titre": "l�armistice de la Premi�re Guerre mondiale",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 30,
+                        "titre": "l�armistice de la Seconde Guerre mondiale",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 31,
+                        "titre": "l�institution de la Communaut� �conomique europ�enne",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 32,
+                        "titre": "le d�barquement alli� sur les plages de Normandie",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "titre": " Quel président américain a démissionné après le scandale du Watergate en 1974 ?",
+                "detail": "Le scandale du Watergate est une affaire d’espionnage politique qui aboutit, en 1974, à la démission du président des États-Unis Richard Nixon. Pendant la campagne pour les élections présidentielles de 1972, cinq hommes sont arrêtés en train d’« inspecter » dans les locaux du parti démocrate, l’immeuble Watergate à Washington. Deux journalistes du Washington Post ont démontré, avec l’aide d’un mystérieux informateur connu sous le nom de Deep Throat (« Gorge profonde »), qu’il existait des liens entre ces cambrioleurs et la présidence des ÉtatsUnis. Leurs enquêtes conduiront à l’inculpation de cinq collaborateurs de Richard Nixon, puis à la création, en février 1973, d’une commission d’enquête sénatoriale. Accusé d’avoir entravé l’action de la justice, Nixon sera contraint de démissionner (août 1974).",
+                "repdex": "d",
+                "reponses": [
+                    {
+                        "id": 33,
+                        "titre": "Dwight D. Eisenhower",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 34,
+                        "titre": "George H. W. Bush",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 35,
+                        "titre": "Gerald Ford",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 36,
+                        "titre": "Richard Nixon",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "titre": "La convention internationale, dénommée « protocole de Kyoto », est un accord :",
+                "detail": "Le protocole de Kyoto est un accord international signé le 11 décembre 1997 à Kyoto, au Japon et entré en vigueur le 16 février 2005. Il visait à réduire, entre 2008 et 2012, d’au moins 5 % par rapport au niveau de 1990 les émissions de six gaz à effet de serre : dioxyde de carbone, méthane, protoxyde d’azote et trois substituts des chlorofluorocarbones.",
+                "repdex": "d",
+                "reponses": [
+                    {
+                        "id": 37,
+                        "titre": "destin� � relancer la croissance dans le monde apr�s la crise �conomique et financi�re de 1929.",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 38,
+                        "titre": "mettant fin � la guerre de Cor�e.",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 39,
+                        "titre": "pr�voyant la capitulation de l�arm�e japonaise � la fin de la Seconde Guerre mondiale.",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 40,
+                        "titre": "visant la r�duction des �missions de gaz � effet de serre.",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "titre": "Laquelle des inventions suivantes doit-on à Alfred Nobel ?",
+                "detail": "",
+                "repdex": "a",
+                "reponses": [
+                    {
+                        "id": 41,
+                        "titre": "la dynamite",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 42,
+                        "titre": "la machine � vapeur",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 43,
+                        "titre": "l��lectricit�",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 44,
+                        "titre": "le t�l�phone",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 12,
+                "titre": "En quelle année a eu lieu le premier tour de France cycliste ?",
+                "detail": "Le 1er juillet 1903, 60 coureurs prennent le départ du premier tour de France de cyclisme  seuls 20 d’entre eux franchiront la ligne d’arrivée, le 18 juillet, et le cycliste Maurice Garin fut le vainqueur avec trois heures d’avance sur ses concurrents.",
+                "repdex": "b",
+                "reponses": [
+                    {
+                        "id": 45,
+                        "titre": "1875",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 46,
+                        "titre": "1903",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 47,
+                        "titre": "1945",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 48,
+                        "titre": "1960",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 13,
+                "titre": "Qui a peint le tableau intitulé Guernica ?",
+                "detail": "Le 1er mai 1937, des bombardiers nazis appelés par Franco ont détruit la ville de Guernica, faisant 1 600 morts. Picasso peignit cette toile quelques mois plus tard.",
+                "repdex": "d",
+                "reponses": [
+                    {
+                        "id": 50,
+                        "titre": "Salvador Dal�",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 51,
+                        "titre": "Francisco de Goya",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 52,
+                        "titre": "Henri Matisse",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 53,
+                        "titre": "Pablo Picasso",
+                        "repdex": "d"
+                    }
+                ]
+            },
+            {
+                "id": 14,
+                "titre": "Qui est le réalisateur du film Avatar (2009) ?",
+                "detail": "",
+                "repdex": "b",
+                "reponses": [
+                    {
+                        "id": 54,
+                        "titre": "George Lucas",
+                        "repdex": "a"
+                    },
+                    {
+                        "id": 55,
+                        "titre": "James Cameron",
+                        "repdex": "b"
+                    },
+                    {
+                        "id": 56,
+                        "titre": "Luc Besson",
+                        "repdex": "c"
+                    },
+                    {
+                        "id": 57,
+                        "titre": "Ron Howard",
+                        "repdex": "d"
+                    }
+                ]
+            }
+        ]
+    }

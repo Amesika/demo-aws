@@ -1,0 +1,12 @@
+.back{
+    margin-top: 12px;
+}
+
+:host{
+    font-size: 1.5rem;
+}
+
+.titre{
+    font-size: 2.5rem;
+    font-weight: 900;
+}
